@@ -4,71 +4,43 @@
     <%- include('partials/head') %>
   </head>
   <body>
-    <%- include('partials/header') %>
-    <!-- carousel -->
-     <main>
-      <div data-carousel-father>
-        <div>
-          <a href=""><img src="" alt=""></a>
+    <div class="desktop-image">
+      <%- include('partials/header') %>
+      <!-- carousel -->
+      <main>
+        <section class="container">
+          <div class="envolver-slider">
+            <div class="slider">
+              <img id="slide-uno" src="images/descuentos.png">
+              <img id="slide-dos" src="images/ofertas.png">
+              <img id="slide-tres" src="images/destacados.png">
+            </div>
+            <div class="slider-nav">
+              <a href="#slide-uno"></a>
+              <a href="#slide-dos"></a>
+              <a href="#slide-tres"></a>
+            </div>
+          </div>
+        </section>
+        <!-- fin del carousel, sigue la sección de destacados -->
+        <p class="destacados-titulo">DESTACADOS</p>
+        <div class="flex justificontent-between">
+          <p></p>
         </div>
-        <div>
-          <a href=""><img src="" alt=""></a>
+        <!-- div padre de las cards -->
+        <div data-cards-father>
+          <div class="card">
+            <img src="images/delantal-ejemplo.png" alt="">
+            <div class="contenido-card">
+              <p class="descuento">40% OFF</p>
+              <p class="titulo-producto">Título</p>
+              <p class="detalle">Tela acrocel rojo con piqué blanco y cerezas.</p>
+              <p class="precio">$00000</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <a href=""><img src="" alt=""></a>
-        </div>
-      </div>
-      <!-- fin del carousel, sigue la sección de destacados -->
-      <p>DESTACADOS</p>
-      <div class="flex justificontent-between">
-        <p></p>
-      </div>
-      <!-- div padre de las cards -->
-      <div data-cards-father>
-        <div class="card">
-          <img src="" alt="">
-          <p>40% OFF</p>
-          <p>Título</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-          <p>$00000</p>
-        </div>
-        <div class="card">
-          <img src="" alt="">
-          <p>40% OFF</p>
-          <p>Título</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-          <p>$00000</p>
-        </div>
-        <div class="card">
-          <img src="" alt="">
-          <p>40% OFF</p>
-          <p>Título</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-          <p>$00000</p>
-        </div>
-        <div class="card">
-          <img src="" alt="">
-          <p>40% OFF</p>
-          <p>Título</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-          <p>$00000</p>
-        </div>
-        <div class="card">
-          <img src="" alt="">
-          <p>40% OFF</p>
-          <p>Título</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-          <p>$00000</p>
-        </div>
-        <div class="card">
-          <img src="" alt="">
-          <p>40% OFF</p>
-          <p>Título</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-          <p>$00000</p>
-        </div>
-      </div>
-    </main>
+      </main>
+    </div>  
   </body>
   <footer>
     <%- include('partials/footer') %>

@@ -5,41 +5,44 @@
 </head>
 <body>
     <header>
-        <nav>
+        <div class="primer-nav">
             <div>
                 <i class="fa-solid fa-magnifying-glass"><input type="text" name="buscador" id=""></i>
                 <!-- filtrar busqueda -->
-                <div>
+                <div class="filter-busqueda">
                     <p>Filtrar búsqueda:</p>
                     <p>Categorías</p>
-                    <ul>
-                        <li>
-                            
-                        </li>
-                    </ul>
                 </div>
             </div>
-            <a href="index.ejs"><img src="/images/logo.png" alt="logo"></a>
-            <i class="fa-solid fa-bars"></i>
+            <div>
+                <a href="index.ejs"><img src="/images/logo.png" alt="logo" class="logo"></a>
+            </div>
+            <div>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            
+        </div>
         <!-- nav para loguearse o registrarse -->
-        <nav>
-            <ul>
-                <li>Registrarse</li>
-                <li>Ingresar</li>
-            </ul>
-        </nav>
-        <!-- nav con todas las categorías -->
-        <nav>
-            <ul>
-                <li><a href="">Categorías</a></li>
-                <li><a href="">Categorías</a></li>
-                <li><a href="">Categorías</a></li>
-                <li><a href="">Categorías</a></li>
-                <li><a href="">Categorías</a></li>
-            </ul>
-        </nav>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li>Registrarse</li>
+                    <li>Ingresar</li>
+                </ul>
+            </nav>
+            <!-- nav con todas las categorías -->
+            <nav class="categorias-menu">
+                <ul>
+                    <li><a href="">Categorías</a></li>
+                    <li><a href="">Categorías</a></li>
+                    <li><a href="">Categorías</a></li>
+                    <li><a href="">Categorías</a></li>
+                    <li><a href="">Categorías</a></li>
+                </ul>
+            </nav>
+        </div>
         <!-- divisor del header con el main -->
-        <div>
+        <div class="divisor">
             <p>Un pedacito de nosotros en...</p>
         </div>
     </header>

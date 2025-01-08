@@ -1,1 +1,46 @@
+.desktop-image{
+    background-image: url(../images/desktop.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
 
+/* secciones ocultas hasta toca el burger button y el search bar */
+
+.filter-busqueda{
+    display: none;
+}
+
+.categorias-menu{
+    display: none;
+}
+
+input{
+    display: none;
+}
+
+.menu{
+    display: none;
+}
+
+/* estilos de la barra de navegación */
+
+.primer-nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 150px;
+    height: 150px;
+}
+
+.divisor{
+    background-color: #f9b695;
+    p{
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+    }
+}

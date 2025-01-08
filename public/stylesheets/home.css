@@ -1,0 +1,49 @@
+/* carrousel */
+
+.envolver-slider{
+    position: relative;
+    margin: 0 auto;
+
+}
+
+.slider{
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 0 0 0;
+    border-radius: 15px;
+    img{
+        flex: 1 0 100%;
+        scroll-snap-align: start;
+        object-fit: cover;
+    }
+}
+
+.slider-nav{
+    display: flex;
+    column-gap: 15px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    a{
+        width: 10px;
+        height: 10px;
+        background-color: #f9b695;
+    }
+}
+
+/* sección destacados */
+
+.destacados-titulo{
+    text-align: center;
+    font-weight: bold;
+}
+
+/* cards */
+
+.card{
+    
+}
