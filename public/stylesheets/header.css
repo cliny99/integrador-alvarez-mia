@@ -1,9 +1,19 @@
 .desktop-image{
     background-image: url(../images/desktop.png);
-    background-size: cover;
+    background-size: 230% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
+}
+
+.fa-magnifying-glass{
+    padding: 20px 0 0 20px;
+    font-size: 20px;
+}
+
+.fa-bars{
+    padding: 20px 20px 0 0px;
+    font-size: 20px;
 }
 
 /* secciones ocultas hasta toca el burger button y el search bar */
