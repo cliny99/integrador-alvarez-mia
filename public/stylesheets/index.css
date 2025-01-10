@@ -1,6 +1,7 @@
 @import 'header.css';
 @import 'home.css';
 @import 'footer.css';
+@import 'login.css';
 
 * {
   margin: 0;

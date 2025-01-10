@@ -4,20 +4,26 @@
     <%- include('partials/head') %>
 </head>
 <body>
-    <%- include('partials/header') %>
-    <main>
-        <form action="" method="post">
-            <p>Correo o número telefónico</p>
-            <input type="text">
-            <p>Contraseña</p>
-            <input type="password">
-            <div class="flex justificontent-between">
-                <p ></p>
+    <div class="desktop-image">
+        <%- include('partials/header') %>
+        <main>
+            <!-- divisor del header con el main -->
+            <div class="divisor">
+                <p>Inicio de sesión</p>
             </div>
-            <button>Entrar</button>
-        </form>
-        <p>Regístrate <a href="">aquí</a></p>
-    </main>
-    <%- include('partials/footer') %>
+            <div class="login-form">
+                <form action="" method="post">
+                    <p>Correo o número telefónico</p>
+                    <input type="text">
+                    <p>Contraseña</p>
+                    <input type="password">
+                    <button>Entrar</button>
+                </form>
+            </div>
+            <div class="link-registro">
+                <p>Regístrate <a href="">aquí</a></p>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

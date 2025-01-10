@@ -1,0 +1,51 @@
+.desktop-image{
+    background-image: url(../images/desktop.png);
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 50px;
+    p{
+        font-weight: bold;
+        padding: 20px 0 10px 0;
+        color: #f9b695;
+        text-shadow: 1px 1px 1px #BB614D;
+    }
+    input{
+        display: flex;
+        margin: 0 auto;
+        border: none;
+        background-color: #BB614D;
+        border-radius: 20px;
+        padding: 10px 30px 10px 30px;
+        color: #f9b695;
+        outline-color: #F6D8D4;
+    }
+    button{
+        display: flex;
+        margin: 20px 0 100% 43%;
+        background-color: #f9b695;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        border: none;
+        box-shadow: 5px 5px 10px 0.1px #BB614D;
+        border-radius: 5px;
+    }
+}
+
+.link-registro{
+    text-align: center;
+    a{
+        color: #f9b695;
+        font-weight: bold;
+        text-decoration: none;
+    }
+}
