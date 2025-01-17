@@ -2,6 +2,9 @@
 @import 'home.css';
 @import 'footer.css';
 @import 'login.css';
+@import 'dashboard.css';
+@import 'productAdd.css';
+@import 'productEdit.css';
 
 * {
   margin: 0;

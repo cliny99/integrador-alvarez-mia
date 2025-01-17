@@ -1,0 +1,18 @@
+.desktop-image{
+    background-image: url(../images/desktop.png);
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+}
+
+
+.productAddContainer{
+    form-group{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
