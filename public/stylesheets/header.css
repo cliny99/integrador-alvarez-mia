@@ -1,14 +1,21 @@
-.desktop-image{
-    background-image: url(../images/desktop.png);
-    background-size: 230% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: scroll;
+body{
+    .desktop-image{
+        background-image: url(../images/desktop.png);
+        background-size: 250% 110%;
+        height: 200vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: scroll;
+    }
+    
 }
 
 .fa-magnifying-glass{
     padding: 20px 0 0 20px;
     font-size: 20px;
+    input{
+        display: none;
+    }
 }
 
 .fa-bars{
@@ -26,9 +33,7 @@
     display: none;
 }
 
-input{
-    display: none;
-}
+
 
 .menu{
     display: none;

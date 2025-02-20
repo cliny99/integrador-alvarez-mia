@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('partials/head') %>
+    <%- include('../partials/head') %>
 </head>
 <body>
-    <%- include('partials/header') %>
-    <main>
-        <form action="" method="post">
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-            <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-            <input type="email" name="email" id="email" placeholder="Correo electrónico">
-            <input type="number" name="numero" id="numero" placeholder="Número telefónico">
-            <input type="password" name="password" id="password" placeholder="Contraseña">
-            <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña">
-            <button>CONFIRMAR</button>
-        </form>
-        <p>¿Ya tienes una cuenta? Inicia sesión <a href="/login.ejs">aquí</a></p>
-    </main>
-    <%- include('partials/footer') %>
+    <div class="desktop-image">
+        <%- include('../partials/header') %>
+        <main>
+            <div class="divisor">
+                <p>Registro</p>
+            </div>
+            <div class="form-register">
+                <form action="/register" method="post" enctype="multipart/form-data">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
+                    <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
+                    <input type="number" name="numero" id="numero" placeholder="Número telefónico" required>
+                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                    <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña" required>
+                    <input type="file" name="fotoPerfil" id="fotoPerfil" accept="image/*">
+                    <button type="submit">CONFIRMAR</button>
+                </form>
+            </div>
+            
+            <p class="redireccion">¿Ya tienes una cuenta? Inicia sesión <a href="/login.ejs">aquí</a></p>
+        </main>
+    </div>
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
 </body>
 </html>

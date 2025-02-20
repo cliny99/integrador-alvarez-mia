@@ -5,6 +5,7 @@
 @import 'dashboard.css';
 @import 'productAdd.css';
 @import 'productEdit.css';
+@import 'register.css';
 
 * {
   margin: 0;

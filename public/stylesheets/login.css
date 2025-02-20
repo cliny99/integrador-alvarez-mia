@@ -28,9 +28,10 @@
         color: #f9b695;
         outline-color: #F6D8D4;
     }
-    button{
-        display: flex;
-        margin: 20px 0 100% 43%;
+    
+}
+.button-login{
+    display: flex;
         background-color: #f9b695;
         color: white;
         font-weight: bold;
@@ -38,9 +39,12 @@
         border: none;
         box-shadow: 5px 5px 10px 0.1px #BB614D;
         border-radius: 5px;
-    }
 }
-
+.div-button-login{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
 .link-registro{
     text-align: center;
     a{

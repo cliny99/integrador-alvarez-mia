@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('partials/head') %>
+    <%- include('../partials/head') %>
 </head>
 <body>
     <div class="desktop-image">
-        <%- include('partials/header') %>
+        <%- include('../partials/header') %>
         <main>
             <!-- divisor del header con el main -->
             <div class="divisor">
                 <p>Inicio de sesión</p>
             </div>
             <div class="login-form">
-                <form action="" method="post">
+                <form action="/login" method="post">
                     <p>Correo o número telefónico</p>
-                    <input type="text">
+                    <input type="text" name="email" required>
                     <p>Contraseña</p>
-                    <input type="password">
-                    <button>Entrar</button>
+                    <input type="password" name="password" required>
+                        <div class="div-button-login">
+                            <button class="button-login">Entrar</button>
+                        </div>    
                 </form>
+                
             </div>
-            <div class="link-registro">
-                <p>Regístrate <a href="">aquí</a></p>
-            </div>
+                <div class="link-registro">
+                <p>Regístrate <a href="/register">aquí</a></p>
+                </div>
+            
         </main>
     </div>
 </body>
