@@ -25,6 +25,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const session = require('express-session');
+
+app.use(session({
+  secret: 'clave-super-secreta',
+  resave: false,
+  saveUninitialized: false
+}));
+
+
 const sequelize = require('./database/config/db');
 
 sequelize.authenticate()

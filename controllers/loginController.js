@@ -1,27 +1,37 @@
-const fs = require("fs");
-const path = require("path");
-const { title } = require("process");
+const bcrypt = require("bcrypt");
+const db = require('../database/models');
 
-const usersFilePath = path.join(__dirname, "../data/users.json");
+module.exports = {
+    login: async (req, res) => {
+        const { email, password } = req.body;
 
-const login = (req, res) => {
-    const { email, password } = req.body;
+        try {
+            // Buscar email
+            const user = await db.User.findOne({ where: { email } });
 
-    if (!fs.existsSync(usersFilePath)) {
-        return res.send("No hay usuarios registrados.");
+            // Si no se encuentra el usuario
+            if (!user) {
+                return res.status(401).send("No hay un usuario con este email");
+            }
+
+            // Comparar contraseña
+            const passwordMatch = await bcrypt.compare(password, user.password);
+
+            if (!passwordMatch) {
+                return res.status(401).send("Contraseña incorrecta");
+            }
+
+            req.session.user = {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                image: user.image
+            };
+
+            res.redirect("/");
+        } catch (error) {
+            console.error("Error al iniciar sesión:", error);
+            res.status(500).send("Error en el servidor");
+        }
     }
-
-    const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-
-    const user = users.find(user => user.email === email && user.password === password);
-
-    if (!user) {
-        return res.send("Usuario o contraseña incorrectos.");
-    }
-
-    res.render("index", { title: "Bienvenido", user }); // tendria que ir a la vista de bienvenida de usuario en vez de index
-    
 };
-
-
-module.exports = { login };
