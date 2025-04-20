@@ -15,32 +15,40 @@
                 </div>
             </div>
             <div>
-                <a href="index.ejs"><img src="/images/logo.png" alt="logo" class="logo"></a>
+                <a href="/"><img src="/images/logo.png" alt="logo" class="logo"></a>
             </div>
             <div>
-                <i class="fa-solid fa-bars"></i>
+                <button id="burger-button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
             
         </div>
         <!-- nav para loguearse o registrarse -->
-        <div class="menu">
-            <nav>
+        <div id="menu" class="menu">
+            <nav class="auth-menu">
                 <ul>
-                    <li>Registrarse</li>
-                    <li>Ingresar</li>
+                    <div class="auth">
+                        <li><a href="/register">Registrarse</a></li>
+                    </div>
+                    <div class="auth">
+                        <li><a href="/login">Ingresar</a></li>
+                    </div>
                 </ul>
             </nav>
-            <!-- nav con todas las categorías -->
+        
+            <!-- Nav con todas las categorías -->
             <nav class="categorias-menu">
                 <ul>
-                    <li><a href="">Categorías</a></li>
-                    <li><a href="">Categorías</a></li>
-                    <li><a href="">Categorías</a></li>
-                    <li><a href="">Categorías</a></li>
-                    <li><a href="">Categorías</a></li>
+                    <li><a href="#">Categorías</a></li>
+                    <li><a href="#">Categorías</a></li>
+                    <li><a href="#">Categorías</a></li>
+                    <li><a href="#">Categorías</a></li>
+                    <li><a href="#">Categorías</a></li>
                 </ul>
             </nav>
-        </div>
+        </div>        
     </header>
+    <script src="scripts/burgerMenu.js"></script>
 </body>
 </html>

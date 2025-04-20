@@ -2,7 +2,7 @@ body{
     .desktop-image{
         background-image: url(../images/desktop.png);
         background-size: 250% 110%;
-        height: 200vh;
+        height: 125vh;
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: scroll;
@@ -22,6 +22,10 @@ body{
     padding: 20px 20px 0 0px;
     font-size: 20px;
 }
+#burger-button{
+    background: none;
+    border: none;
+}
 
 /* secciones ocultas hasta toca el burger button y el search bar */
 
@@ -29,14 +33,50 @@ body{
     display: none;
 }
 
-.categorias-menu{
+.menu{
     display: none;
 }
 
+.menu.visible {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 5%);
+    width: 70%;
+    background-color: #BB614D;
+    border-radius: 10px;
+    nav{
 
+        ul{
+            list-style: none;
+        }
+            a{
+                color: #f9b695;
+                text-decoration: none;
+                font-size: 20px;
+                text-align: center;
+            }
+    }
+}
 
-.menu{
-    display: none;
+.auth-menu,
+.categorias-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+}
+
+.auth-menu ul,
+.categorias-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.auth-menu li,
+.categorias-menu li {
+    margin: 10px 0; /* Espaciado entre elementos */
 }
 
 /* estilos de la barra de navegación */

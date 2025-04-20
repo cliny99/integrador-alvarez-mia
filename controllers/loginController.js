@@ -19,8 +19,9 @@ const login = (req, res) => {
         return res.send("Usuario o contraseña incorrectos.");
     }
 
-    res.render("index", { title: "Bienvenido", user });
-
+    res.render("index", { title: "Bienvenido", user }); // tendria que ir a la vista de bienvenida de usuario en vez de index
+    
 };
+
 
 module.exports = { login };

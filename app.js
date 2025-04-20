@@ -25,6 +25,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const sequelize = require('./database/config/db');
+
+sequelize.authenticate()
+  .then(() => {
+    console.log('✅ Conexión establecida con la base de datos');
+  })
+  .catch(err => {
+    console.error('❌ Error al conectar con la base de datos:', err);
+  });
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);

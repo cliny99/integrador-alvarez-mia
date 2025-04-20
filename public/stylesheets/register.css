@@ -8,6 +8,7 @@
         border-radius: 20px;
         padding: 10px 30px 10px 30px;
         color: #f9b695;
+        width: 60%;
     }
     button{
         display: flex;
@@ -26,6 +27,7 @@ input:focus {
     outline: none;
     border: 2px solid #F9B695;
 }
+
 
 .form-register input::placeholder {
     color: #f9b695 !important; /* Para el color del texto del placeholder */
