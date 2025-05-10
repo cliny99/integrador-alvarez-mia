@@ -59,3 +59,29 @@
     color: #000;
     padding: 15px;
 }
+
+@media (min-width: 768px) {
+    .contactanos-titulo{
+        font-size: 35px;
+    }
+    .informacion{
+        p{
+            font-size: 25px;
+        }
+        li{
+            font-size: 20px;
+        }
+    }
+    .red{
+        margin: 10px 144px 10px 144px !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contenedor-redes{
+        red{
+            font-size: 10px ;
+        }
+    }
+    
+}

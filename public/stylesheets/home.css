@@ -112,3 +112,28 @@
         text-shadow: 1px 1px 5px #F6D8D4;
     }
 }
+
+@media (min-width: 768px) {
+    .descuento{
+        bottom: 22%;
+        left: 72%;
+        font-size: 20px;
+    }
+    .contenido-card{
+        .precio{
+            top: 92%;
+            left: 68%;
+            font-size: 30px;
+        }
+        .detalle{
+        font-size: 20px;
+    }
+    }
+    .destacados-titulo{
+        font-size: 30px;
+    }
+    .titulo-producto{
+        font-size: 25px;
+    }
+    
+}

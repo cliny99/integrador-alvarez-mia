@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <div class="desktop-image">
+        <%- include('../partials/header') %>
+        <main>
+            <div class="divisor">
+                <p>Un pedacito de nosotros en...</p>
+            </div>
+            <div class="container">
+                <form action="" method="get"></form>
+                <p>FILTRO</p>
+                <div class="title">
+                    <p>Categoría</p>
+                    <div class="category">
+                        <label for="delantal">
+                            <input type="radio" name="category" id="delantal" value="Delantal">Delantal
+                        </label>
+                        <label for="accesorios_escolares">
+                            <input type="radio" name="category" id="accesorios_escolares" value="Accesorios Escolares">Accesorios Escolares
+                        </label>
+                        <label for="mascotas">
+                            <input type="radio" name="category" id="mascotas" value="Mascotas">Mascotas
+                        </label>
+                        <label for="cuidado_personal">
+                            <input type="radio" name="category" id="cuidado_personal" value="Cuidado Personal">Cuidado Personal
+                        </label>
+                        <label for="accesorios_mate">
+                            <input type="radio" name="category" id="accesorios_mate" value="Accesorios Mate">Accesorios Mate
+                        </label>
+                    </div>
+                </div>
+                <div class="title">
+                    <p>Tipo de tela</p>
+                    <div class="fabric">
+                        <select name="fabric[]" id="fabric">
+                            <option value="">Jean</option>
+                            <option value="">Polar</option>
+                            <option value="">Toalla</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<footer>
+    <%- include('../partials/footer') %>
+  </footer>
+</body>
+</html>
