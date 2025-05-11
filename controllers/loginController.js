@@ -7,7 +7,7 @@ module.exports = {
 
         try {
             // Buscar email
-            const user = await db.User.findOne({ where: { email } });
+            const user = await db.Users.findOne({ where: { email } });
 
             // Si no se encuentra el usuario
             if (!user) {

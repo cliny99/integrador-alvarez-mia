@@ -8,7 +8,7 @@ module.exports = {
         const hashedPassword = await bcrypt.hash(password, 10);
         const imagePath = req.file ? req.file.filename : null; // Si se subió una imagen, se guarda el nombre del archivo, si no, se guarda null
         try {
-            await db.User.create({
+            await db.Users.create({
                 name,
                 last_name,
                 password: hashedPassword,
@@ -19,15 +19,14 @@ module.exports = {
                 updated_at,
                 deleted_at
             });
-            console.log(req.body);
-            res.redirect("/login");   // Redirigir a la página de inicio de sesión después del registro
+
+            return res.redirect("/login"); 
         } catch (error) {
             if (error.name === "SequelizeUniqueConstraintError") {
-                 return res.status(400).json({ message: error });
+                 return res.status(400).json({ message: error.message});
             }
-            res.status(500).json({ message: db.error });
             console.error("Error al registrar el usuario:", error);
-            res.redirect("/register"); 
+            return res.status(500).json({ message: "Error en el servidor" });
         }
     }
 }
