@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes){
-    let alias = 'Product'; //nombre de la tabla en la base de datos
+    let alias = 'product'; 
     let cols = {
         id: {
             type: DataTypes.INTEGER,
@@ -39,7 +39,20 @@ module.exports = function(sequelize, DataTypes){
                 model: 'category',
                 key: 'id'
             }
-        }
+        },
+        created_at: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
+        },
+        updated_at: {
+            type: DataTypes.DATE,
+            allowNull: true
+        },
+        deleted_at: {
+            type: DataTypes.DATE,
+            allowNull: true
+        },
     };
     let config = {
         tableName: 'product',

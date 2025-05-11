@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    let alias = 'User'; //nombre de la tabla en la base de datos
+    let alias = 'users';
     let cols = {
         id: {
             type: DataTypes.INTEGER,
@@ -30,16 +30,16 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: true
         },
-        created_at: {
+        createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW
         },
-        updated_at: {
+        updatedAt: {
             type: DataTypes.DATE,
             allowNull: true
         },
-        deleted_at: {
+        deletedAt: {
             type: DataTypes.DATE,
             allowNull: true
         },

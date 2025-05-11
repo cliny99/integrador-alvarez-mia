@@ -1,0 +1,123 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('users', [
+      {
+        name: 'John',
+        last_name: 'Doe',
+        password: '123456',
+        email: 'john.doe1@example.com',
+        phone: '1234567890',
+        Image: 'https://example.com/image1.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      },
+      {
+        name: 'Jane',
+        last_name: 'Smith',
+        password: '123456',
+        email: 'jane.smith@example.com',
+        phone: '2345678901',
+        Image: 'https://example.com/image2.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      },
+      {
+        name: 'Carlos',
+        last_name: 'Gonzalez',
+        password: '123456',
+        email: 'carlos.g@example.com',
+        phone: '3456789012',
+        Image: 'https://example.com/image3.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      },
+      {
+        name: 'Laura',
+        last_name: 'Martinez',
+        password: '123456',
+        email: 'laura.m@example.com',
+        phone: '4567890123',
+        Image: 'https://example.com/image4.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      },
+      {
+        name: 'Miguel',
+        last_name: 'Lopez',
+        password: '123456',
+        email: 'miguel.l@example.com',
+        phone: '5678901234',
+        Image: 'https://example.com/image5.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      },
+      {
+        name: 'Lucia',
+        last_name: 'Perez',
+        password: '123456',
+        email: 'lucia.p@example.com',
+        phone: '6789012345',
+        Image: 'https://example.com/image6.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      },
+      {
+        name: 'Andres',
+        last_name: 'Ramirez',
+        password: '123456',
+        email: 'andres.r@example.com',
+        phone: '7890123456',
+        Image: 'https://example.com/image7.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      },
+      {
+        name: 'Sofia',
+        last_name: 'Fernandez',
+        password: '123456',
+        email: 'sofia.f@example.com',
+        phone: '8901234567',
+        Image: 'https://example.com/image8.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      },
+      {
+        name: 'Diego',
+        last_name: 'Torres',
+        password: '123456',
+        email: 'diego.t@example.com',
+        phone: '9012345678',
+        Image: 'https://example.com/image9.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      },
+      {
+        name: 'Valentina',
+        last_name: 'Rojas',
+        password: '123456',
+        email: 'valentina.r@example.com',
+        phone: '0123456789',
+        Image: 'https://example.com/image10.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        deletedAt: null,
+      }
+    ], {});
+  },
+
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Users', null, {});
+  }
+};

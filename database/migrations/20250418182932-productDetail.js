@@ -17,22 +17,7 @@ module.exports = {
         allowNull: false,
       },
       size: {
-        type: Sequelize.STRING(25),
-        allowNull: true,
-      },
-      created_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.NOW,
-      },
-      updated_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.NOW,
-      },
-      deleted_at: {
-        type: Sequelize.DATE,
-        allowNull: true,
+        type: Sequelize.TINYINT,
       },
     });
   },

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    let alias = 'ProductDetail'; //nombre de la tabla en la base de datos
+    let alias = 'productDetail'
     let cols = {
         id: {
             type: DataTypes.INTEGER,
@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes){
         },
         size: {
             type: DataTypes.STRING(25),
-            allowNull: true
+            allowNull: false
         }
     };
     let config = {

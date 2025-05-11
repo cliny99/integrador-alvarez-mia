@@ -1,7 +1,7 @@
-{
+module.exports={
   "development": {
     "username": "root",
-    "password": "HOBIoppa99",
+    "password": "HOBIoppa99", 
     "database": "euge_creacion",
     "host": "127.0.0.1",
     "dialect": "mysql"
