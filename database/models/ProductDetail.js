@@ -15,7 +15,8 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false
         },
         size: {
-            type: DataTypes.TINYINT
+            type: DataTypes.STRING(25),
+            allowNull: true
         }
     };
     let config = {

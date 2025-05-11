@@ -6,6 +6,7 @@
 @import 'productAdd.css';
 @import 'productEdit.css';
 @import 'register.css';
+@import 'searchProduct.css';
 
 * {
   margin: 0;

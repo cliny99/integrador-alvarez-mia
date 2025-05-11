@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%- include('partials/headdash.ejs') %>
+    <%- include('partialsDash/headdash') %>
 </head>
 <body>
     <div class="desktop-image">
-        <%- include('partials/headerdash') %>
+        <%- include('partialsDash/headerdash') %>
         <main>
             <h1>Dashboard</h1>
             <p>Total de productos: <%= products.length %></p>
-
+            <%- include('partialsDash/sidebar') %>
             <table>
                 <thead>
                     <tr>

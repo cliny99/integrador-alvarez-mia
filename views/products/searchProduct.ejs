@@ -8,41 +8,59 @@
         <%- include('../partials/header') %>
         <main>
             <div class="divisor">
-                <p>Un pedacito de nosotros en...</p>
+                <p>Buscar producto</p>
             </div>
-            <div class="container">
-                <form action="" method="get"></form>
-                <p>FILTRO</p>
-                <div class="title">
-                    <p>Categoría</p>
-                    <div class="category">
-                        <label for="delantal">
-                            <input type="radio" name="category" id="delantal" value="Delantal">Delantal
-                        </label>
-                        <label for="accesorios_escolares">
-                            <input type="radio" name="category" id="accesorios_escolares" value="Accesorios Escolares">Accesorios Escolares
-                        </label>
-                        <label for="mascotas">
-                            <input type="radio" name="category" id="mascotas" value="Mascotas">Mascotas
-                        </label>
-                        <label for="cuidado_personal">
-                            <input type="radio" name="category" id="cuidado_personal" value="Cuidado Personal">Cuidado Personal
-                        </label>
-                        <label for="accesorios_mate">
-                            <input type="radio" name="category" id="accesorios_mate" value="Accesorios Mate">Accesorios Mate
-                        </label>
+            <div class="filter-container">
+                <form action="" method="get">
+                    <div class="title">
+                        <p>Categoría</p>
+                        <div class="category">
+                            <select name="category[]" id="category">
+                                <option value="" disabled selected>Elegí una categoría</option>
+                                <option value="Delantal">Delantal</option>
+                                <option value="Accesorios Escolares">Accesorios Escolares</option>
+                                <option value="Mascotas">Mascotas</option>
+                                <option value="Cuidado Personal">Cuidado Personal</option>
+                                <option value="Accesorios Mate">Accesorios Mate</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="title">
-                    <p>Tipo de tela</p>
-                    <div class="fabric">
-                        <select name="fabric[]" id="fabric">
-                            <option value="">Jean</option>
-                            <option value="">Polar</option>
-                            <option value="">Toalla</option>
-                        </select>
+                    <div class="title">
+                        <p>Tipo de tela</p>
+                        <div class="fabric">
+                            <select name="fabric[]" id="fabric">
+                                <option value="" disabled selected>Elegí una tela</option>
+                                <option value="">Jean</option>
+                                <option value="">Polar</option>
+                                <option value="">Toalla</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
+                    <div class="title">
+                        <p>Tamaño</p>
+                        <div class="size">
+                            <select name="size[]" id="size">
+                                <option value="" disabled selected>Elegí un tamaño</option>
+                                <option value="S">S (Pequeño)</option>
+                                <option value="M">M (Mediano)</option>
+                                <option value="L">L (Grande)</option>
+                                <option value="XL">XL (Extra Grande)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="title">
+                        <p>Nombre del producto</p>
+                        <div class="search-bar">
+                            <input type="search" name="" id="">
+                        </div>
+                    </div>
+                    <div class="filter-button">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="results">
+                <p>Resultados</p>
             </div>
         </main>
     </div>

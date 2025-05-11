@@ -17,7 +17,8 @@ module.exports = {
         allowNull: false,
       },
       size: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.STRING(25),
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,
