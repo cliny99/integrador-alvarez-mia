@@ -37,9 +37,9 @@ app.use(session({
 }));
 
 
-const sequelize = require('./database/config/db');
+const db = require('./database/models');
 
-sequelize.authenticate()
+db.sequelize.authenticate()
   .then(() => {
     console.log('✅ Conexión establecida con la base de datos');
   })

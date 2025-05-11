@@ -1,8 +1,8 @@
 const { Product } = require('../../database/models');
-
+console.log('Product:', Product);
 module.exports = async (req, res) => {
     try {
-        const products = await Product.findAll();
+        const products = await Product.findAll({ limit: 4 });
         res.render('index', { title: 'Euge Creación', products });
     } catch (error) {
         console.error('Error al obtener productos:', error);

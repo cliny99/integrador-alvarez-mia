@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    let alias = 'users';
+    let alias = 'Users';
     let cols = {
         id: {
             type: DataTypes.INTEGER,
@@ -30,22 +30,22 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: true
         },
-        createdAt: {
+        created_at: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW
         },
-        updatedAt: {
+        updated_at: {
             type: DataTypes.DATE,
             allowNull: true
         },
-        deletedAt: {
+        deleted_at: {
             type: DataTypes.DATE,
             allowNull: true
         },
     };
     let config = {
-        tableName: 'user',
+        tableName: 'users',
         timestamps: true,
         underscored: true,
     };

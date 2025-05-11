@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    let alias = 'category'; //nombre de la tabla en la base de datos
+    let alias = 'Category';
     let cols = {
         id: {
             type: DataTypes.INTEGER,

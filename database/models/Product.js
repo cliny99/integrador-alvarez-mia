@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes){
-    let alias = 'product'; 
+    let alias = 'Product'; 
     let cols = {
         id: {
             type: DataTypes.INTEGER,
