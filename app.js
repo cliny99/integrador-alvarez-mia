@@ -8,11 +8,13 @@ var indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const searchProductRouter = require('./routes/searchProduct');
+const cartRouter = require('./routes/cart');
+const dashboardRouter = require('./routes/dashboard');
 const port = 3030
 
 
 
-const dashboardRouter = require('./routes/dashboard');
+
 
 var app = express();
 
@@ -49,6 +51,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/admin', dashboardRouter);
 app.use('/products/searchProducts', searchProductRouter);
+app.use('/cart', cartRouter);
 app.use('/dashboard', dashboardRouter);
 
 // catch 404 and forward to error handler
