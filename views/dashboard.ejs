@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('partials/headdash.ejs') %>
+</head>
+<body>
+    <div class="desktop-image">
+        <%- include('partials/headerdash') %>
+        <main>
+            <h1>Dashboard</h1>
+            <p>Total de productos: <%= products.length %></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(product => { %>
+                        <tr>
+                            <td><%= product.id %></td>
+                            <td><%= product.name %></td>
+                            <td>$<%= product.price %></td>
+                            <td><%= product.stock %></td>
+                            <td>
+                                <a href="/products/edit/<%= product.id %>">Editar</a> |
+                                <a href="/products/delete/<%= product.id %>">Eliminar</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+            <a href="/products/create">Agregar nuevo producto</a>
+        </main>
+    </div>
+    <footer>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body>
+    <div class="desktop-image">
+      <%- include('partials/header') %>
+      <main>
+        <!-- divisor del header con el main -->
+        <div class="divisor">
+          <p>Un pedacito de nosotros en...</p>
+        </div>
+        <!-- carousel -->
+        <section class="container">
+          <div class="envolver-slider">
+            <div class="slider">
+              <img id="slide-uno" src="images/descuentos.png">
+              <img id="slide-dos" src="images/ofertas.png">
+              <img id="slide-tres" src="images/destacados.png">
+            </div>
+            <div class="slider-nav">
+              <a href="#slide-uno"></a>
+              <a href="#slide-dos"></a>
+              <a href="#slide-tres"></a>
+            </div>
+          </div>
+        </section>
+        <!-- fin del carousel, sigue la sección de destacados -->
+        <p class="destacados-titulo">DESTACADOS</p>
+        <div class="flex justificontent-between">
+          <p></p>
+        </div>
+        <!-- div padre de las cards -->
+        <div class="data-cards-father">
+          <% products.forEach(function(product) { %>
+            <div class="card">
+              <img src="<%= product.imageUrl || 'images/delantal-ejemplo.png' %>" alt="">
+              <div class="contenido-card">
+                <% if (product.discount) { %>
+                  <p class="descuento"><%= product.discount %>% OFF</p>
+                <% } %>
+                <p class="titulo-producto"><%= product.name %></p>
+                <p class="detalle"><%= product.description %></p>
+                <p class="precio">$<%= product.price.toFixed(2) %></p>
+              </div>
+            </div>
+          <% }); %>
+      </main>
+    </div>
+    <footer>
+      <%- include('partials/footer') %>
+    </footer>
+  </body>
+</html>
