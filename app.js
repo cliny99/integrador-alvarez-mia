@@ -1,34 +1,33 @@
 var createError = require('http-errors');
 var express = require('express');
+var app = express()
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+
+
+
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const searchProductRouter = require('./routes/searchProduct');
 const cartRouter = require('./routes/cart');
 const dashboardRouter = require('./routes/dashboard');
-const port = 3030
-
-
-
-
-
-var app = express();
+const adminRouter = require('./routes/apis/productRouter');
+const port = 3000
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-const session = require('express-session');
+app.use(cors());
 
 app.use(session({
   secret: 'clave-super-secreta',
@@ -36,23 +35,21 @@ app.use(session({
   saveUninitialized: false
 }));
 
+app.use(cors({
+  origin: 'http://localhost:5173', // url de frontend
+  credentials: true // permite enviar cookies
+}));
 
-const db = require('./database/models');
-
-db.sequelize.authenticate()
-  .then(() => {
-    console.log('✅ Conexión establecida con la base de datos');
-  })
-  .catch(err => {
-    console.error('❌ Error al conectar con la base de datos:', err);
-  });
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/admin', dashboardRouter);
-app.use('/products/searchProducts', searchProductRouter);
 app.use('/cart', cartRouter);
-app.use('/dashboard', dashboardRouter);
+//app.use('/dashboard', dashboardRouter);
+
+// apis 
+app.use('/api/products', adminRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
