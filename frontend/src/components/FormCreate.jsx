@@ -10,7 +10,6 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
     image: "",
   });
 
-  // Si hay un producto para editar, carga sus datos
   useEffect(() => {
     if (productToEdit) {
       setFormData({

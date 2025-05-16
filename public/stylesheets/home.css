@@ -137,3 +137,40 @@
     }
     
 }
+
+@media (min-width: 1024px) {
+    .envolver-slider {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .slider {
+        aspect-ratio: 16 / 6;
+        border-radius: 18px;
+    }
+
+    .card {
+        width: 20%;
+    }
+
+    .destacados-titulo {
+        font-size: 40px;
+    }
+
+    .titulo-producto {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .contenido-card {
+        .precio {
+            top: 91%;
+            left: 67%;
+            font-size: 30px;
+        }
+        .detalle {
+            font-size: 25px;
+        }
+    }
+}
+

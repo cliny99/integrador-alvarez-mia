@@ -13,10 +13,9 @@ const session = require('express-session');
 
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
-const searchProductRouter = require('./routes/searchProduct');
-const cartRouter = require('./routes/cart');
 const dashboardRouter = require('./routes/dashboard');
 const adminRouter = require('./routes/apis/productRouter');
+const cartRouter = require('./routes/cart');
 const port = 3000
 
 // view engine setup

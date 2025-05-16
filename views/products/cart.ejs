@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('/partials/head') %>
+    <link rel="stylesheet" href="/styles/cart.css" />
+  </head>
+  <body>
+    <div class="desktop-image">
+      <%- include('/partials/header') %>
+
+      <main>
+        <div class="divisor">
+          <p>Tu carrito de compras</p>
+        </div>
+
+        <section class="container">
+            <!-- Productos -->
+            <div class="productos">
+              <% products.forEach(function(product) { %>
+                <div class="producto">
+                  <h3><%= product.name %></h3>
+                  <p>$<%= product.price %></p>
+                  <button class="agregar-btn" data-nombre="<%= product.name %>" data-precio="<%= product.price %>">
+                    Agregar al carrito
+                  </button>
+                </div>
+              <% }); %>
+            </div>
+          
+            <!-- Carrito (fuera del div.productos) -->
+            <div class="carrito">
+              <h3>Carrito</h3>
+              <ul id="carrito-lista"></ul>
+              <p>Total: $<span id="total">0</span></p>
+            </div>
+          </section>
+
+    <footer><%- include('partials/footer') %></footer>
+
+    <script>
+        const carrito = [];
+      
+        document.addEventListener("DOMContentLoaded", () => {
+          document.querySelectorAll(".agregar-btn").forEach(button => {
+            button.addEventListener("click", () => {
+              const nombre = button.getAttribute("data-nombre");
+              const precio = parseFloat(button.getAttribute("data-precio"));
+              agregarAlCarrito(nombre, precio);
+            });
+          });
+        });
+      
+        function agregarAlCarrito(nombre, precio) {
+          carrito.push({ nombre, precio });
+          renderizarCarrito();
+        }
+      
+        function renderizarCarrito() {
+          const lista = document.getElementById("carrito-lista");
+          const totalEl = document.getElementById("total");
+          lista.innerHTML = "";
+          let total = 0;
+      
+          carrito.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = `${item.nombre} - $${item.precio}`;
+            lista.appendChild(li);
+            total += item.precio;
+          });
+      
+          totalEl.textContent = total;
+        }
+      </script>
+  </body>
+</html>

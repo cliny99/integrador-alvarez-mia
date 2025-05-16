@@ -1,7 +1,8 @@
-// src/pages/ProductsPage.jsx
+
 import { useState } from "react";
-import ProductList from "../components/ListProducts";
-import ProductForm from "../components/form-create";
+import ListProducts from "../components/ListProducts";
+import ProductForm from "../components/FormCreate";
+import CreateProductButton from "../components/CreateButton";
 
 const ProductsPage = () => {
   const [editingProduct, setEditingProduct] = useState(null);
@@ -18,21 +19,16 @@ const ProductsPage = () => {
   };
 
   return (
-    <div className="products-page">
-      <h1>Gestión de Productos</h1>
-      
-      {showForm ? (
+    <div className="products-page min-h-screen mb-10 relative"> 
+      <ListProducts onEdit={handleEdit} />
+      {showForm && (
         <ProductForm
           productToEdit={editingProduct}
           onSave={handleSave}
           onCancel={() => setShowForm(false)}
         />
-      ) : (
-        <>
-          <button onClick={() => setShowForm(true)}>Crear Nuevo Producto</button>
-          <ProductList onEdit={handleEdit} />
-        </>
       )}
+      <CreateProductButton onClick={() => setShowForm(true)} /> 
     </div>
   );
 };

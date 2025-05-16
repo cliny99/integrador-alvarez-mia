@@ -11,13 +11,14 @@
         <div class="divisor">
           <p>Un pedacito de nosotros en...</p>
         </div>
+
         <!-- carousel -->
         <section class="container">
           <div class="envolver-slider">
             <div class="slider">
-              <img id="slide-uno" src="images/descuentos.png">
-              <img id="slide-dos" src="images/ofertas.png">
-              <img id="slide-tres" src="images/destacados.png">
+              <img id="slide-uno" src="images/descuentos.png" />
+              <img id="slide-dos" src="images/ofertas.png" />
+              <img id="slide-tres" src="images/destacados.png" />
             </div>
             <div class="slider-nav">
               <a href="#slide-uno"></a>
@@ -26,30 +27,51 @@
             </div>
           </div>
         </section>
+
         <!-- fin del carousel, sigue la sección de destacados -->
         <p class="destacados-titulo">DESTACADOS</p>
         <div class="flex justificontent-between">
           <p></p>
         </div>
+
         <!-- div padre de las cards -->
         <div class="data-cards-father">
-          <% products.forEach(function(product) { %>
-            <div class="card">
-              <img src="<%= product.imageUrl || 'images/delantal-ejemplo.png' %>" alt="">
-              <div class="contenido-card">
-                <% if (product.discount) { %>
-                  <p class="descuento"><%= product.discount %>% OFF</p>
-                <% } %>
-                <p class="titulo-producto"><%= product.name %></p>
-                <p class="detalle"></p>
-                <p class="precio">$<%= product.price %></p>
-              </div>
+          <% products.forEach(function (product) { %>
+          <div class="card">
+            <img
+              src="<%= product.imageUrl || 'images/delantal-ejemplo.png' %>"
+              alt=""
+            />
+            <div class="contenido-card">
+              <% if (product.discount) { %>
+              <p class="descuento"><%= product.discount %>% OFF</p>
+              <% } %>
+              <p class="titulo-producto"><%= product.name %></p>
+              <p class="detalle"></p>
+              <p class="precio">$<%= product.price %></p>
             </div>
+          </div>
           <% }); %>
+        </div>
+        <!-- <-- ESTA LÍNEA FALTABA -->
       </main>
     </div>
-    <footer>
-      <%- include('partials/footer') %>
-    </footer>
+
+    <footer><%- include('partials/footer') %></footer>
+
+    <script>
+      const slider = document.querySelector(".slider");
+      let interval = setInterval(() => {
+        if (!slider) return;
+        const slideWidth = slider.clientWidth;
+        const maxScroll = slider.scrollWidth - slideWidth;
+
+        if (slider.scrollLeft >= maxScroll) {
+          slider.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          slider.scrollBy({ left: slideWidth, behavior: "smooth" });
+        }
+      }, 4000);
+    </script>
   </body>
 </html>

@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import MainLayout from "../layout/MainLayout";
 import Products from "../pages/Products"
+
+
 const AppRouter = () => {
   return (
     <Routes>

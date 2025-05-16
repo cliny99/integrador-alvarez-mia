@@ -2,7 +2,7 @@ body{
     .desktop-image{
         background-image: url(../images/desktop.png);
         background-size: 250% 110%;
-        height: 125vh;
+        height: 200vh;
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: scroll;
@@ -105,7 +105,7 @@ body{
         .desktop-image{
             background-image: url(../images/desktop.png);
             background-size: 250% 110%;
-            height: 210vh;
+            height: 320vh;
             background-repeat: no-repeat;
             background-position: center;
             background-attachment: scroll;
@@ -134,7 +134,7 @@ body{
 @media (min-width: 1024px) {
     body{
         .desktop-image{
-            height: 340vh;
+            height: 200vh;
         }
         
     }
