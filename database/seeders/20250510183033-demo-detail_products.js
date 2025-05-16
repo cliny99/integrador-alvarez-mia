@@ -5,29 +5,19 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('productDetail', [
       {
-        fabric: 'Algodón',
-        color: 'Blanco',
-        size: 'M',
+        detail: 'pantalón'
       },
       {
-        fabric: 'Denim',
-        color: 'Azul',
-        size: '32',
+        detail: 'Denim'
       },
       {
-        fabric: 'Sintético',
-        color: 'Negro',
-        size: '42',
+        detail: 'Sintético'
       },
       {
-        fabric: 'Lino',
-        color: 'Beige',
-        size: 'L',
+        detail: 'Lino'
       },
       {
-        fabric: 'Poliéster',
-        color: 'Rojo',
-        size: 'S',
+        detail: 'Poliéster'
       }
     ]);
   },

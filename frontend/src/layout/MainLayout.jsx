@@ -3,26 +3,39 @@ import { BsHouseHeartFill } from "react-icons/bs";
 
 const MainLayout = () => {
   return (
-    <div className="flex h-screen bg-light">
-      <aside className="w-64 bg-light2 shadow-md p-4">
-        <h2 className="text-2xl font-bold mb-6 text-light">Mi Inventario</h2>
-        <nav className="space-y-4">
-          <Link to="/products" className="block text-gray-700 hover:text-light">Productos</Link>
-          <Link to="/" className="block text-gray-700 hover:text-light">Ajustes</Link>
-          <Link to="/" className="block text-gray-700 hover:text-light">Volver al inicio</Link>
-          <Link to="/" className="block text-gray-700 hover:text-light">Salir</Link>
+    <div className="flex h-screen bg-gradient-to-r from-[#fef9f7] to-[#f8f2f0] text-gray-700">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white/70 backdrop-blur-md shadow-md border-r border-gray-200 p-6">
+        <h2 className="text-2xl font-semibold mb-8 text-black tracking-tight">Mi Inventario</h2>
+        <nav className="space-y-3">
+          <div className="block shadow rounded-l hover:bg-light2 transition-colors">
+          <Link to="/products" className="block hover:text-white transition-colors">Productos</Link>
+          </div>
+          <div className="block shadow rounded-l hover:bg-light2 transition-colors">
+          <Link to="/" className="block hover:text-white transition-colors">Ajustes</Link>
+          </div>
+          <div className="block shadow rounded-l hover:bg-light2 transition-colors">
+          <Link to="/" className="block hover:text-white transition-colors">Volver al inicio</Link>
+          </div>
+          <div className="block shadow rounded-l hover:bg-light2 transition-colors">
+          <Link to="/" className="block hover:text-white transition-colors">Salir</Link>
+          </div>
         </nav>
       </aside>
 
+      {/* Content area */}
       <div className="flex-1 flex flex-col">
-        <header className="bg-white shadow p-4">
-          <div className="flex items-center gap-2 text-light2">
-            <BsHouseHeartFill/>
-            <h1 className="text-xl font-semibold text-light2">Bienvenido!</h1>
+        {/* Header */}
+        <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 p-4 shadow-sm">
+          <div className="flex items-center gap-2 text-[#b67352]">
+            <BsHouseHeartFill className="text-xl" />
+            <h1 className="text-lg font-medium">¡Bienvenido!</h1>
           </div>
         </header>
+
+        {/* Main content */}
         <main className="flex-1 overflow-y-auto p-6">
-          <Outlet /> {/* Aquí se renderiza la página actual */}
+          <Outlet />
         </main>
       </div>
     </div>

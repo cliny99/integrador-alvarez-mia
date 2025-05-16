@@ -8,18 +8,10 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
       },
-      fabric: {
+      detail: {
         type: Sequelize.STRING(25),
         allowNull: false,
-      },
-      color: {
-        type: Sequelize.STRING(25),
-        allowNull: false,
-      },
-      size: {
-        type: Sequelize.STRING(25),
-        allowNull: false,
-      },
+      }
     });
   },
   async down (queryInterface, Sequelize) {

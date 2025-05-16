@@ -83,7 +83,7 @@ exports.getCategoriesAndDetails = async (req, res) => {
     });
 
     const details = await ProductDetail.findAll({
-      attributes: ['id', 'fabric']
+      attributes: ['id', 'detail']
     });
 
     res.json({ categories, details });

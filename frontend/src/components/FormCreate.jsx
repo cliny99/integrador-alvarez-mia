@@ -11,10 +11,8 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
     category_id: "",
     product_detail_id: "",
   });
-
   const [categories, setCategories] = useState([]);
   const [details, setDetails] = useState([]);
-
   useEffect(() => {
     productApi.getCategoriesAndDetails()
       .then(res => {
@@ -23,7 +21,6 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
       })
       .catch(err => console.error("Error fetching categories and details:", err));
   }, []);
-
   useEffect(() => {
     if (productToEdit) {
       setFormData({
@@ -36,17 +33,13 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
       });
     }
   }, [productToEdit]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Para los selects, aquí guardamos directamente el id seleccionado
     setFormData({
       ...formData,
       [name]: name === "price" || name === "stock" ? Number(value) : value,
     });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -150,6 +143,7 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
             <div>
               <label className="block text-sm font-medium text-gray-700">Detalle</label>
               <select
+              type="text"
                 name="product_detail_id"
                 value={formData.product_detail_id}
                 onChange={handleChange}
@@ -157,8 +151,10 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
               >
                 <option value="">Seleccione un detalle</option>
-                {details.map(det => (
-                  <option key={det.id} value={det.id}>{det.name}</option>
+                {details.map(detail => (
+                  <option key={detail.id} value={detail.id}>
+                  {detail.detail} {detail.pattern ? `(${detail.pattern})` : ""}
+                </option>
                 ))}
               </select>
             </div>

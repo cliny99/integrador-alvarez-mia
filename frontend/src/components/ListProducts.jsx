@@ -1,81 +1,86 @@
-  import { useState, useEffect } from "react";
-  import { productApi } from "../api/productApi";
-  import { toast } from "react-toastify";
-  import { Button } from "@headlessui/react";
+import { useState, useEffect } from "react";
+import { productApi } from "../api/productApi";
+import { toast } from "react-toastify";
+import { Button } from "@headlessui/react";
 
-  const ListProducts = ({ onEdit, refreshTrigger  }) => {
-    console.log("onEdit prop:", onEdit);
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+const ListProducts = ({ onEdit, refreshTrigger }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-      loadProducts();
-    }, [ refreshTrigger]);
+  useEffect(() => {
+    loadProducts();
+  }, [refreshTrigger]);
 
-    const loadProducts = async () => {
-      try {
-        const response = await productApi.getAll();
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error cargando productos:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    const handleDelete = async (id) => {
-      if (window.confirm("¿Eliminar este producto?")) {
-        try {
-          await productApi.delete(id);
-          toast.success("Producto eliminado correctamente");
-          loadProducts();
-        } catch (error) {
-          toast.error("Error al eliminar el producto");
-          console.error("Error eliminando:", error);
-        }
-      }
-    };
-    if (loading) return <div>Cargando...</div>;
-
-      return (
-        <div className="product-list mb-10">
-          <h2 className="text-2xl font-bold mb-4 bg-light2 text-light rounded-2xl p-0.5 pl-2">Lista de Productos</h2>
-          <table className="w-full bg-light2 rounded-2xl shadow-lg table-fixed">
-            <thead>
-              <tr>
-                <th className="text-left px-4 py-2">Nombre</th>
-                <th className="text-left px-4 py-2">Precio</th>
-                <th className="text-left px-4 py-2">Stock</th>
-                <th className="text-left px-4 py-2">Gestión</th>
-              </tr>
-            </thead>
-            <tbody>
-              {products.map((product) => (
-                <tr key={product.id}>
-                  <td className="text-left px-4 py-2 hover:bg-light hover:text-light2 hover:font-bold">{product.name}</td>
-                  <td className="text-left px-4 py-2">${product.price}</td>
-                  <td className="text-left px-4 py-2">{product.stock}</td>
-                  <td>
-                  <Button
-                    onClick={() => onEdit(product)}
-                    className="inline-flex items-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition"
-                    >
-                    Editar
-                    </Button>
-
-                    <Button
-                    onClick={() => handleDelete(product.id)}
-                    className="inline-flex items-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ml-2"
-                    >
-                    Eliminar
-                    </Button>
-
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      );
+  const loadProducts = async () => {
+    try {
+      const response = await productApi.getAll();
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error cargando productos:", error);
+    } finally {
+      setLoading(false);
+    }
   };
-  export default ListProducts;
+
+  const handleDelete = async (id) => {
+    if (window.confirm("¿Eliminar este producto?")) {
+      try {
+        await productApi.delete(id);
+        toast.success("Producto eliminado correctamente");
+        loadProducts();
+      } catch (error) {
+        toast.error("Error al eliminar el producto");
+        console.error("Error eliminando:", error);
+      }
+    }
+  };
+
+  if (loading) return <div className="text-center text-gray-500 py-10">Cargando productos...</div>;
+
+  return (
+    <div className="product-list mb-10">
+      <h2 className="text-xl font-semibold mb-6 text-[#d98c68]">Lista de Productos</h2>
+
+      <div className="overflow-x-auto bg-white/80 backdrop-blur-sm shadow rounded-xl border border-light2">
+        <table className="min-w-full text-sm text-left text-gray-700">
+          <thead className="border border-light2">
+            <tr>
+              <th className="px-6 py-4 font-medium">Nombre</th>
+              <th className="px-6 py-4 font-medium">Precio</th>
+              <th className="px-6 py-4 font-medium">Stock</th>
+              <th className="px-6 py-4 font-medium">Gestión</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100">
+            {products.map((product) => (
+              <tr key={product.id} className="hover:bg-[#fdf7f4] transition-colors">
+                <td className="px-6 py-3">{product.name}</td>
+                <td className="px-6 py-3">${product.price}</td>
+                <td className="px-6 py-3">{product.stock}</td>
+                <td className="px-6 py-3 flex gap-2">
+                  <Button
+                    as="button"
+                    onClick={() => onEdit(product)}
+                    className="inline-flex items-center rounded-lg bg-[#7db4b5] px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-[#68a4a5] focus:outline-none focus:ring-2 focus:ring-[#7db4b5] focus:ring-offset-1 transition"
+                  >
+                    Editar
+                  </Button>
+
+                  <Button
+                    as="button"
+                    onClick={() => handleDelete(product.id)}
+                    className="inline-flex items-center rounded-lg bg-[#de7066] px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-[#c65f55] focus:outline-none focus:ring-2 focus:ring-[#de7066] focus:ring-offset-1 transition"
+                  >
+                    Eliminar
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default ListProducts;

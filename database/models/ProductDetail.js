@@ -6,18 +6,10 @@ module.exports = function(sequelize, DataTypes){
             primaryKey: true,
             autoIncrement: true
         },
-        fabric: {
+        detail: {
             type: DataTypes.STRING(25),
             allowNull: false
         },
-        color: {
-            type: DataTypes.STRING(25),
-            allowNull: false
-        },
-        size: {
-            type: DataTypes.STRING(25),
-            allowNull: false
-        }
     };
     let config = {
         tableName: 'productdetail', 
