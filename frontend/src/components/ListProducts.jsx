@@ -3,14 +3,14 @@
   import { toast } from "react-toastify";
 
 
-  const ListProducts = ({ onEdit }) => {
+  const ListProducts = ({ onEdit, refreshTrigger  }) => {
     console.log("onEdit prop:", onEdit);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       loadProducts();
-    }, []);
+    }, [ refreshTrigger]);
 
     const loadProducts = async () => {
       try {

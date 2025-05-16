@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes){
         }
     };
     let config = {
-        tableName: 'product_detail', 
+        tableName: 'productdetail', 
         timestamps: true,
         underscored: true,
     };

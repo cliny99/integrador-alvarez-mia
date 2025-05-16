@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// La URL del backend viene de .env (ej: http://localhost:3000)
-const API_URL = import.meta.env.VITE_BACKEND_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 // Configuración de axios
 const api = axios.create({
@@ -14,7 +13,7 @@ const api = axios.create({
 // Funciones para productos
 export const productApi = {
   getAll: async () => {
-    return await api.get("/api/products"); // Ajusta la ruta según tu backend
+    return await api.get("/api/products");
   },
   getById: async (id) => {
     return await api.get(`/api/products/${id}`);
@@ -27,5 +26,8 @@ export const productApi = {
   },
   delete: async (id) => {
     return await api.delete(`/api/products/${id}`);
+  },
+  getCategoriesAndDetails: async () => {
+    return await api.get("/api/products/categories-and-details");
   },
 };
