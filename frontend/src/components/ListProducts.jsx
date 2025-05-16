@@ -1,7 +1,7 @@
   import { useState, useEffect } from "react";
   import { productApi } from "../api/productApi";
   import { toast } from "react-toastify";
-
+  import { Button } from "@headlessui/react";
 
   const ListProducts = ({ onEdit, refreshTrigger  }) => {
     console.log("onEdit prop:", onEdit);
@@ -56,8 +56,20 @@
                   <td className="text-left px-4 py-2">${product.price}</td>
                   <td className="text-left px-4 py-2">{product.stock}</td>
                   <td>
-                    <button className="text-left px-4 py-2" onClick={() => onEdit(product)}>Editar</button>
-                    <button className="text-left px-4 py-2 text-red-600" onClick={() => handleDelete(product.id)}>Eliminar</button>
+                  <Button
+                    onClick={() => onEdit(product)}
+                    className="inline-flex items-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition"
+                    >
+                    Editar
+                    </Button>
+
+                    <Button
+                    onClick={() => handleDelete(product.id)}
+                    className="inline-flex items-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ml-2"
+                    >
+                    Eliminar
+                    </Button>
+
                   </td>
                 </tr>
               ))}

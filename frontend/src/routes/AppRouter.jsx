@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import MainLayout from "../layout/MainLayout";
 import Products from "../pages/Products"
+import HomePage from "../pages/HomePage";
 
 
 const AppRouter = () => {
@@ -13,6 +14,7 @@ const AppRouter = () => {
         <Route path="products" element={<Products />} />
         <Route path="users" element={<div>Usuarios</div>} />
       </Route>
+      <Route path="home" element={<HomePage />} />
     </Routes>
   );
 };

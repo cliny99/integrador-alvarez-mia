@@ -22,7 +22,7 @@ const ProductsPage = () => {
   const [refresh, setRefresh] = useState(false);
 
 const handleRefresh = () => {
-  setRefresh(prev => !prev); // cambia el valor para disparar el useEffect
+  setRefresh(prev => !prev); 
 };
 
   return (
