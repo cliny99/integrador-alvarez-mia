@@ -1,53 +1,75 @@
 import { useState, useEffect } from "react";
-import { Dialog } from '@headlessui/react';
+import { Dialog } from "@headlessui/react";
 import { productApi } from "../api/productApi";
 import { toast } from "react-toastify";
+
 const ProductForm = ({ productToEdit, onSave, onCancel }) => {
   const [formData, setFormData] = useState({
     name: "",
     price: 0,
     stock: 0,
-    image: "",
+    image: null,
     category_id: "",
     product_detail_id: "",
   });
+
   const [categories, setCategories] = useState([]);
   const [details, setDetails] = useState([]);
+
   useEffect(() => {
-    productApi.getCategoriesAndDetails()
-      .then(res => {
+    productApi
+      .getCategoriesAndDetails()
+      .then((res) => {
         setCategories(res.data.categories);
         setDetails(res.data.details);
       })
-      .catch(err => console.error("Error fetching categories and details:", err));
+      .catch((err) =>
+        console.error("Error fetching categories and details:", err)
+      );
   }, []);
+
   useEffect(() => {
     if (productToEdit) {
       setFormData({
         name: productToEdit.name,
         price: productToEdit.price,
         stock: productToEdit.stock,
-        image: productToEdit.image || "",
+        image: null, // no cargamos imagen existente
         category_id: productToEdit.category_id || "",
         product_detail_id: productToEdit.product_detail_id || "",
       });
     }
   }, [productToEdit]);
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: name === "price" || name === "stock" ? Number(value) : value,
-    });
+    const { name, value, files } = e.target;
+    if (name === "image") {
+      setFormData({ ...formData, image: files[0] });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: name === "price" || name === "stock" ? Number(value) : value,
+      });
+    }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("price", formData.price);
+    data.append("stock", formData.stock);
+    if (formData.image) data.append("image", formData.image);
+    data.append("category_id", formData.category_id);
+    data.append("product_detail_id", formData.product_detail_id);
+
     try {
       if (productToEdit) {
-        await productApi.update(productToEdit.id, formData);
+        await productApi.update(productToEdit.id, data);
         toast.success("Producto actualizado correctamente");
       } else {
-        await productApi.create(formData);
+        await productApi.create(data);
         toast.success("Producto creado correctamente");
       }
       onSave();
@@ -68,9 +90,10 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
           </Dialog.Title>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Nombre */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">Nombre</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Nombre
+              </label>
               <input
                 type="text"
                 name="name"
@@ -81,9 +104,11 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
               />
             </div>
 
-            {/* Precio */}
+
             <div>
-              <label className="block text-sm font-medium text-gray-700">Precio</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Precio
+              </label>
               <input
                 type="number"
                 name="price"
@@ -96,9 +121,11 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
               />
             </div>
 
-            {/* Stock */}
+
             <div>
-              <label className="block text-sm font-medium text-gray-700">Stock</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Stock
+              </label>
               <input
                 type="number"
                 name="stock"
@@ -110,21 +137,25 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
               />
             </div>
 
-            {/* Imagen */}
+
             <div>
-              <label className="block text-sm font-medium text-gray-700">Imagen (URL)</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Imagen
+              </label>
               <input
-                type="text"
+                type="file"
                 name="image"
-                value={formData.image}
+                accept="image/*"
                 onChange={handleChange}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
               />
             </div>
 
-            {/* Categoría */}
+
             <div>
-              <label className="block text-sm font-medium text-gray-700">Categoría</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Categoría
+              </label>
               <select
                 name="category_id"
                 value={formData.category_id}
@@ -133,17 +164,19 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
               >
                 <option value="">Seleccione una categoría</option>
-                {categories.map(cat => (
-                  <option key={cat.id} value={cat.id}>{cat.name}</option>
+                {categories.map((cat) => (
+                  <option key={cat.id} value={cat.id}>
+                    {cat.name}
+                  </option>
                 ))}
               </select>
             </div>
 
-            {/* Detalle del producto */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">Detalle</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Detalle
+              </label>
               <select
-              type="text"
                 name="product_detail_id"
                 value={formData.product_detail_id}
                 onChange={handleChange}
@@ -151,15 +184,15 @@ const ProductForm = ({ productToEdit, onSave, onCancel }) => {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500"
               >
                 <option value="">Seleccione un detalle</option>
-                {details.map(detail => (
+                {details.map((detail) => (
                   <option key={detail.id} value={detail.id}>
-                  {detail.detail} {detail.pattern ? `(${detail.pattern})` : ""}
-                </option>
+                    {detail.detail}{" "}
+                    {detail.pattern ? `(${detail.pattern})` : ""}
+                  </option>
                 ))}
               </select>
             </div>
 
-            {/* Botones */}
             <div className="mt-6 flex justify-end gap-3">
               <button
                 type="button"

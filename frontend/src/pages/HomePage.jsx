@@ -2,26 +2,30 @@ import { Tab } from "@headlessui/react";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import LoginModal from "../modals/LoginModal";
+import RegisterModal from "../modals/RegisterModal";
+import { productApi } from "../api/productApi";  
 
 const images = [
-  { id: 1, src: "/images/descuentos.png", alt: "descuentos" },
-  { id: 2, src: "/images/ofertas.png", alt: "ofertas" },
-  { id: 3, src: "/images/destacados.png", alt: "destacados" },
+  { id: 1, src: "/image/descuentos.png", alt: "descuentos" },
+  { id: 2, src: "/image/ofertas.png", alt: "ofertas" },
+  { id: 3, src: "/image/destacados.png", alt: "destacados" },
 ];
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
 
   useEffect(() => {
-    fetch("/api/products")
-      .then(res => res.json())
-      .then(data => setProducts(data))
-      .catch(console.error);
+    productApi.getAll()
+      .then(res => setProducts(res.data))
+      .catch(err => {
+        console.error("Error cargando productos:", err);
+      });
   }, []);
 
-  // Auto-switch tab slider
   const [selectedIndex, setSelectedIndex] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setSelectedIndex((prev) => (prev + 1) % images.length);
@@ -29,9 +33,14 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const openRegisterFromLogin = () => {
+    setShowLogin(false);
+    setShowRegister(true);
+  };
+
   return (
     <>
-      <Header />
+      <Header openLoginModal={() => setShowLogin(true)} />
 
       <main className="px-4 md:px-8 lg:px-16">
         <div className="my-4 text-center">
@@ -77,7 +86,7 @@ const HomePage = () => {
               className="relative rounded-2xl shadow-lg bg-gradient-to-br from-[#F6D8D4] to-[#f9b695] w-[45%] md:w-[20%] flex flex-col"
             >
               <img
-                src={product.imageUrl || "/images/delantal-ejemplo.png"}
+                src={product.image || "/images/delantal-ejemplo.png"}
                 alt={product.name}
                 className="w-[90%] mx-auto pb-4 object-contain"
               />
@@ -98,6 +107,8 @@ const HomePage = () => {
       </main>
 
       <Footer />
+      <LoginModal isOpen={showLogin} closeModal={() => setShowLogin(false)} openRegisterModal={openRegisterFromLogin} />
+      <RegisterModal isOpen={showRegister} closeModal={() => setShowRegister(false)} openLoginModal={() => setShowLogin(true)} />
     </>
   );
 };
